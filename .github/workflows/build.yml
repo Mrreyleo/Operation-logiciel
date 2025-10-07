@@ -24,10 +24,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      # Étape 3 : Installer les dépendances (ici optionnel)
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
       # Étape 4 : Lancer le build (ici on lance main.py)
       - name: Run Python app
         run: python exo2/main.py
