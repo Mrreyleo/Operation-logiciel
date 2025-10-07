@@ -1,7 +1,11 @@
-name: Build Workflow
+name: Python Build Hello World
 
+# Déclencheur : à chaque push sur la branche principale
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -10,8 +14,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout du code
-        uses: actions/checkout@v4
+      # Étape 1 : Checkout du code
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Hello World
-        run: echo "🚀 Hello World depuis build.yaml"
+      # Étape 2 : Installer Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # Étape 3 : Afficher Hello World
+      - name: Say Hello
+        run: echo "Hello World"
+
