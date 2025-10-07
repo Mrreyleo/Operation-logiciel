@@ -1,0 +1,37 @@
+name: Python Build Hello World
+
+# Déclencheur : à chaque push ou pull request sur la branche main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Checkout du code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Étape 2 : Installer Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # Étape 3 : Installer les dépendances (ici optionnel)
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Étape 4 : Lancer le build (ici on lance main.py)
+      - name: Run Python app
+        run: python exo2/main.py
+
+      # Étape 5 : Afficher Hello World depuis l'action
+      - name: Say Hello
+        run: echo "Hello World from GitHub Action!"
