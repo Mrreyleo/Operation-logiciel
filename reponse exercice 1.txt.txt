@@ -16,6 +16,9 @@ Trois principaux contributeurs :
 git tag
 1.5.x
 donc 1 
+c'est la version du projet
 
-ls -la
-gradle
+cat .github/workflows/*.yml
+JAVA CI workflow
+kubetcl
+donc oui
